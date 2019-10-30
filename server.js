@@ -38,6 +38,14 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/feastfreedom", {useUnifiedTopology: true})
 
+
+app.use(express.static(__dirname + '/dist/FeastFreedom'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/dist/FeastFreedom/index.html'));
+});
+
 app.listen(PORT, function(){
   console.log(`Listening on port: ${PORT}`)
 })
