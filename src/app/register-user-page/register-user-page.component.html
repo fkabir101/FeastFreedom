@@ -1,0 +1,47 @@
+<div class = 'container bg-light mt-5 p-2'>
+  <div class = 'row justify-content-center'>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group ">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" class="form-control" id="username" placeholder="Example input" style="width:400px">
+              <div *ngIf="registerForm.get('username').invalid && (registerForm.get('username').dirty || registerForm.get('username').touched)"
+              class="text-danger">
+                <div *ngIf="registerForm.get('username').errors.required">
+                  Username is required.
+                </div>
+              </div>
+          </div>
+        <div class="form-group ">
+          <label for="email">Email</label>
+          <input type="text" formControlName="email" class="form-control" id="email" placeholder="Example input" style="width:400px">
+
+            <div *ngIf="registerForm.get('email').invalid && (registerForm.get('email').dirty || registerForm.get('email').touched)"
+            class="text-danger">
+              <div *ngIf="registerForm.get('email').errors.required">
+                Email is required.
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control" id="password" placeholder="Another input" style="width:400px">
+
+            <div *ngIf="registerForm.get('password').invalid && (registerForm.get('password').dirty || registerForm.get('password').touched)"
+            class="text-danger">
+              <div *ngIf="registerForm.get('password').errors.required">
+                Password is required.
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword" placeholder="Another input" style="width:400px">
+
+            <div class="text-danger" *ngIf="registerForm.value.password !== registerForm.value.confirmPassword">
+                Passwords don't match.
+            </div>
+        </div>
+
+          <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+  </div>

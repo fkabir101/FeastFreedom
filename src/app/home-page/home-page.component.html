@@ -1,0 +1,30 @@
+<div class = "container mt-5">
+  <div class="row card-group">
+    <div class="col-3"  *ngFor="let kitchen of kitchens">
+        <div class="card">
+            <img src = 'assets/uploads/{{kitchen.imgLocation}}'  class="card-img-top" alt="...">
+            <p>{{kitchen.name}}</p>
+            <p *ngIf="kitchen.startHour<12 && kitchen.startHour !=0">Opening Hour {{kitchen.startHour}} AM</p>
+            <p *ngIf="kitchen.startHour>12">Opening Hour {{kitchen.startHour-12}} PM</p>
+            <p *ngIf="kitchen.startHour ==0">Opening Hour 12 AM</p>
+            <p *ngIf="kitchen.endHour<12 && kitchen.startHour !=0">Closing Hour {{kitchen.endHour}} AM</p>
+            <p *ngIf="kitchen.endHour>12">Closing Hour {{kitchen.endHour-12}} PM</p>
+            <p *ngIf="kitchen.endHour ==0">Opening Hour 12 AM</p>
+            <p>Days Open: </p>
+            <ul class="list-inline">
+              <li *ngIf="kitchen.workingDays[0]" class="list-inline-item">Sun </li>
+              <li *ngIf="kitchen.workingDays[1]" class="list-inline-item">Mon </li>
+              <li *ngIf="kitchen.workingDays[2]" class="list-inline-item">Tue </li>
+              <li *ngIf="kitchen.workingDays[3]" class="list-inline-item">Wed </li>
+              <li *ngIf="kitchen.workingDays[4]" class="list-inline-item">Thur </li>
+              <li *ngIf="kitchen.workingDays[5]" class="list-inline-item">Fri </li>
+              <li *ngIf="kitchen.workingDays[6]" class="list-inline-item">Sat </li>
+            </ul>
+
+            <a class="btn btn-primary" (click)="seeMenu(kitchen)" >See Menu</a>
+        </div>
+    </div>
+  </div>
+</div>
+
+

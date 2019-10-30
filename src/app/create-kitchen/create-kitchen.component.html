@@ -1,0 +1,129 @@
+<div class = 'container bg-light mt-5 p-2'>
+  <div class = 'row justify-content-center'>
+    <form [formGroup]="kitchenForm" (ngSubmit)="onSubmit()">
+        <div class="form-group ">
+          <label for="name">Kitchen Name:</label>
+          <input type="text" formControlName="name" class="form-control" id="name" placeholder="Example input" style="width:400px">
+            <div *ngIf="kitchenForm.get('name').invalid && (kitchenForm.get('name').dirty || kitchenForm.get('name').touched)"
+            class="text-danger">
+              <div *ngIf="kitchenForm.get('name').errors.required">
+                Kitchen Name is required.
+              </div>
+            </div>
+        </div>
+
+        <label>Days Open:</label>
+        <br>
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" formControlName="sunday"class="custom-control-input" id="sunday" value='true'>
+          <label class="custom-control-label" for="sunday">Sunday</label>
+        </div>
+
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" formControlName="monday"class="custom-control-input" id="monday" value='true'>
+          <label class="custom-control-label" for="monday">Monday</label>
+        </div>
+
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" formControlName="tuesday"class="custom-control-input" id="tuesday" value='true'>
+          <label class="custom-control-label" for="tuesday">Tuesday</label>
+        </div>
+
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" formControlName="wednsday"class="custom-control-input" id="wednsday" value='true'>
+          <label class="custom-control-label" for="wednsday">Wednsday</label>
+        </div>
+
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" formControlName="thursday"class="custom-control-input" id="thursday" value='true'>
+          <label class="custom-control-label" for="thursday">Thursday</label>
+        </div>
+
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" formControlName="friday"class="custom-control-input" id="friday" value='true'>
+          <label class="custom-control-label" for="friday">Friday</label>
+        </div>
+
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input type="checkbox" formControlName="saturday"class="custom-control-input" id="saturday" value='true'>
+          <label class="custom-control-label" for="saturday">Saturday</label>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="startHour">Hour Open</label>
+          <select class="form-control w-25" formControlName="startHour" id="startHour">
+            <option>12 am</option>
+            <option>1 am</option>
+            <option>2 am</option>
+            <option>3 am</option>
+            <option>4 am</option>
+            <option>5 am</option>
+            <option>6 am</option>
+            <option>7 am</option>
+            <option>8 am</option>
+            <option>9 am</option>
+            <option>10 am</option>
+            <option>11 am</option>
+            <option>12 pm</option>
+            <option>1 pm</option>
+            <option>2 pm</option>
+            <option>3 pm</option>
+            <option>4 pm</option>
+            <option>5 pm</option>
+            <option>6 pm</option>
+            <option>7 pm</option>
+            <option>8 pm</option>
+            <option>9 pm</option>
+            <option>10 pm</option>
+            <option>11 pm</option>
+          </select>
+
+          <div *ngIf="kitchenForm.get('startHour').invalid && (kitchenForm.get('startHour').dirty || kitchenForm.get('startHour').touched)"
+          class="text-danger">
+            <div *ngIf="kitchenForm.get('startHour').errors.required">
+              Opening Hour is required.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="endHour">Hour Closed</label>
+          <select class="form-control w-25" formControlName="endHour" id="endHour">
+            <option>12 am</option>
+            <option>1 am</option>
+            <option>2 am</option>
+            <option>3 am</option>
+            <option>4 am</option>
+            <option>5 am</option>
+            <option>6 am</option>
+            <option>7 am</option>
+            <option>8 am</option>
+            <option>9 am</option>
+            <option>10 am</option>
+            <option>11 am</option>
+            <option>12 pm</option>
+            <option>1 pm</option>
+            <option>2 pm</option>
+            <option>3 pm</option>
+            <option>4 pm</option>
+            <option>5 pm</option>
+            <option>6 pm</option>
+            <option>7 pm</option>
+            <option>8 pm</option>
+            <option>9 pm</option>
+            <option>10 pm</option>
+            <option>11 pm</option>
+          </select>
+
+          <div *ngIf="kitchenForm.get('endHour').invalid && (kitchenForm.get('endHour').dirty || kitchenForm.get('endHour').touched)"
+          class="text-danger">
+            <div *ngIf="kitchenForm.get('endHour').errors.required">
+              Closing Hour is required.
+            </div>
+          </div>
+
+        </div>
+        <app-file-upload formControlName="image"></app-file-upload>
+
+          <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+  </div>
